@@ -15,7 +15,10 @@ function AboutScreen:new()
 
 		local stage = self.stage
 		local aboutImage = display.newImage("screen_about.png")
-		aboutImage:setReferencePoint(display.TopLeftReferencePoint)
+		-- [jwarden 8.23.2014] not supported in Graphics 2.0
+		-- aboutImage:setReferencePoint(display.TopLeftReferencePoint)
+		aboutImage.anchorX = 0
+		aboutImage.anchorY = 0
 		self:insert(aboutImage)
 		self.aboutImage = aboutImage
 		aboutImage.x = (stage.width / 2) - (aboutImage.width / 2)
@@ -25,7 +28,10 @@ function AboutScreen:new()
 
 	function screen:getButton(image)
 		local img = display.newImage(image)
-		img:setReferencePoint(display.TopLeftReferencePoint)
+		-- [jwarden 8.23.2014] not supported in Graphics 2.0
+		-- img:setReferencePoint(display.TopLeftReferencePoint)
+		img.anchorX = 0
+		img.anchorY = 0
 		function img:touch(event)
 			screen:onButtonTouch(event)
 		end

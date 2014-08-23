@@ -19,7 +19,10 @@ function MainScreen:new()
 
 	function screen:getButton(image)
 		local img = display.newImage(image)
-		img:setReferencePoint(display.TopLeftReferencePoint)
+		-- [jwarden 8.23.2014] not supported in Graphics 2.0
+		-- img:setReferencePoint(display.TopLeftReferencePoint)
+		img.anchorX = 0
+		img.anchorY = 0
 		self:insert(img)
 		function img:touch(event)
 			screen:onButtonTouch(event)
